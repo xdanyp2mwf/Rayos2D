@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rayos2d"
+version = "0.0.1"
+description = "Simulación de óptica geométrica y trazado de rayos en 2D"
+readme = "README.txt"
+requires-python = ">=3.7"
+dependencies = [
+    "numpy",
+    "matplotlib"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]  
+include = ["rayos2d*"]  
