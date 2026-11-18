@@ -1,6 +1,5 @@
 import numpy as np
 
-
 class Fuentes:
     def __init__(self, r, k, lam):
             """
@@ -100,5 +99,4 @@ class Fuentes:
             lams = cls._calcular_lambdas(N, lam, lam_ancho, lam_dist)
 
             return cls(r, k, lams)
-
 

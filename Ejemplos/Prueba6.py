@@ -20,7 +20,7 @@ import numpy as np
 """
 
 
-LenteCircular = Objetos.Lente(-0, -0, 4, -4, 8, 8, material = Materiales.Diamante)
+LenteCircular = Objetos.Lente((-0, -0), (4, -4), 8, 8, material = Materiales.Diamante)
 Foco =  Fuentes.Fuentes.fuente_puntual((-6,3),700,lam=0.65)
 
 

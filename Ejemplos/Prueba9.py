@@ -10,7 +10,6 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from rayos2d import * 
 # -------------------------------------------------------------
 
-
 """
 # ---------------Si ya está instalado --------------------------
 
@@ -20,14 +19,15 @@ import numpy as np
 #---------------------------------------------------------------
 """
 
-LenteBiconcava = Objetos.Lente(-3, -0,  -6, 6, 3, 8, material = Materiales.SF10,num_puntos=2000)
-Sol =  Fuentes.Fuentes.haz_colimado((-12,0),8,(1,-0.05),700, lam=0.60)
+EspejoPrimario = Objetos.Lente((9, 0), (-14, np.inf), 1, 12, material=Materiales.Espejo)
+EspejoSecundario = Objetos.Interfaz((2.8, 0), (1, -1), material=Materiales.Espejo , longitud=1.5)
+Ocular = Objetos.Lente((2.8, -3.7), (2.5, -2.5), 0.6, 2.5, material=Materiales.BK7, direccion=(1, 0))
+LuzEstelar = Fuentes.Fuentes.haz_colimado((-14, -0), 5, (1, 0), 200, lam=0.49)
 
-Sistema = Evolucion.SistemaOptico(LenteBiconcava,Sol)
+Sistema = Evolucion.SistemaOptico([EspejoPrimario, EspejoSecundario,Ocular], LuzEstelar)
 
-Sistema.evolucionar(pasos = 3000)
+Sistema.evolucionar(pasos=5000)
 Sistema.graficar()
-plt.title("Luz de una linterna pasando por lente biconcava ", color='white', fontsize=16, pad=20)
-
+plt.title("Telescopio reflector Newtoniano con espejos", color='white', fontsize=16, pad=20)
 
 plt.show()

@@ -19,14 +19,14 @@ import numpy as np
 #---------------------------------------------------------------
 """
 
-LentePlana = Objetos.Lente(0, 0, -np.inf, np.inf, 2, 10, material = Materiales.CristalComun)
-Sol =  Fuentes.Fuentes.haz_colimado((-8,12),29,(1,-1),700, lam=0.60)
+Objetivo = Objetos.Lente((-8, 0), (10, -10), 1.9, 8, material=Materiales.BK7)
+Ocular = Objetos.Lente((4.9, 0), (3, -3), 1.6, 4, material=Materiales.BK7)
+Estrella = Fuentes.Fuentes.haz_colimado((-14, 0), 5, (1, 0), 100, lam=0.53)
 
-Sistema = Evolucion.SistemaOptico(LentePlana,Sol)
+Sistema = Evolucion.SistemaOptico([Objetivo, Ocular], Estrella)
 
-Sistema.evolucionar(pasos = 4000)
+Sistema.evolucionar(pasos=4000)
 Sistema.graficar()
-plt.title("Luz del sol pasando por lente plana ", color='white', fontsize=16, pad=20)
-
+plt.title("Telescopio refractor simple (dos lentes convergentes)", color='white', fontsize=16, pad=20)
 
 plt.show()

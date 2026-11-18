@@ -10,7 +10,6 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from rayos2d import * 
 # -------------------------------------------------------------
 
-
 """
 # ---------------Si ya está instalado --------------------------
 
@@ -20,17 +19,15 @@ import numpy as np
 #---------------------------------------------------------------
 """
 
+ParedSup = Objetos.Interfaz((0, 2.5), (0, -1), material=Materiales.Aire, longitud=30)
+ParedInf = Objetos.Interfaz((0, -2.5), (0, 1), material=Materiales.Aire, longitud=30)
+FocoInterno = Fuentes.Fuentes.fuente_puntual((-18, 0), 150, lam=0.52,angulo_apertura=70)
 
-LenteBiconvexa = Objetos.Lente(-3, -0,  6, -6, 1.5, 5, material = Materiales.SF10,num_puntos=2000)
-Sol =  Fuentes.Fuentes.haz_colimado((-12,5),29,(1,-0.3),700, lam=0.60)
+Sistema = Evolucion.SistemaOptico([ParedSup, ParedInf], FocoInterno, ambiente=Materiales.BK7)
 
-
-
-Sistema = Evolucion.SistemaOptico(LenteBiconvexa, Sol)
-
-Sistema.evolucionar(pasos = 4000)
+Sistema.evolucionar(pasos=5000)
 Sistema.graficar()
-plt.title("Luz del sol pasando por lente biconvexa", color='white', fontsize=16, pad=20)
-
+plt.title("Propagación por reflexión total interna en guía de ondas", color='white', fontsize=16, pad=20)
+plt.axhspan(-2.5, 2.5, color='cyan', alpha=0.15, zorder=1)
 
 plt.show()

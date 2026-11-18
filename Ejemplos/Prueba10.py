@@ -21,7 +21,7 @@ import numpy as np
 """
 
 
-LenteCircular = Objetos.Lente(-0, -0, 4, -4, 8, 8, material = Materiales.BK7)
+LenteCircular = Objetos.Lente((-0, -0), (4, -4), 8, 8, material = Materiales.BK7)
 Foco =  Fuentes.Fuentes.fuente_puntual((-2,0),700,lam=0.65, lam_dist= "uniforme", lam_ancho=0.00,angulo_apertura=360)
 
 

@@ -21,7 +21,7 @@ import numpy as np
 """
 
 
-Corazon = Objetos.Corazon(0,0,escala=5, material=Materiales.Diamante )
+Corazon = Objetos.Corazon((0,0),escala=5, material=Materiales.Diamante )
 Sol =  Fuentes.Fuentes.haz_colimado((0,-11),22,(0.0,1),2000, lam=0.65)
 
 

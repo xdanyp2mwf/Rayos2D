@@ -10,7 +10,6 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from rayos2d import * 
 # -------------------------------------------------------------
 
-
 """
 # ---------------Si ya está instalado --------------------------
 
@@ -20,17 +19,14 @@ import numpy as np
 #---------------------------------------------------------------
 """
 
+Prisma1 = Objetos.TrianguloEquilatero((-5, -1), 5, material=Materiales.BK7, direccion=(0, 1))
+Prisma2 = Objetos.TrianguloEquilatero((-0.3, -1.2), 5, material=Materiales.BK7, direccion=(0, -1))
+LuzBlanca = Fuentes.Fuentes.haz_colimado((-13, -1), 0.2, (1, 0.15), 100, lam_dist="gaussiana", lam=0.55, lam_ancho=0.18)
 
-LenteCircular = Objetos.Lente(-0, -0, 4, -4, 8, 8, material = Materiales.Diamante)
-Laserverde = Fuentes.Fuentes.haz_colimado((-10,0), 0.1 , (1, -0.2), 600,lam = 0.55)
+Sistema = Evolucion.SistemaOptico([Prisma1, Prisma2], LuzBlanca)
 
-
-
-Sistema = Evolucion.SistemaOptico(LenteCircular,Laserverde)
-
-Sistema.evolucionar(pasos = 4000)
+Sistema.evolucionar(pasos=4000)
 Sistema.graficar()
-plt.title("Laser verde pasando por una lente circular de diamante", color='white', fontsize=16, pad=20)
-
+plt.title("Dispersión y recombinación cromática en doble prisma", color='white', fontsize=16, pad=20)
 
 plt.show()

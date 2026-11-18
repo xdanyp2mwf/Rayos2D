@@ -20,8 +20,8 @@ import numpy as np
 """
 
 
-Prisma = Objetos.TrianguloEquilatero(-5,-0, 7, material = Materiales.BK7)
-Sol_Colimado = Fuentes.Fuentes.haz_colimado((-12,0), 0.2 , (1, 0.1), 600, lam_dist="gaussiana",lam = 0.550,lam_ancho=0.2)
+Prisma = Objetos.TrianguloEquilatero((-5,-0), 7, material = Materiales.BK7)
+Sol_Colimado = Fuentes.Fuentes.haz_colimado((-12,0), 0.2 , (1, 0.1), 200, lam_dist="gaussiana",lam = 0.550,lam_ancho=0.2)
 
 Sistema = Evolucion.SistemaOptico(Prisma,Sol_Colimado)
 
