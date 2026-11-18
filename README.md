@@ -24,7 +24,7 @@ pip install .
 AUTOR
 -----
 Desarrollado por: Eduardo Daniel Delgado Arellano
-Contacto: danyp2mwf@ciencias.unam.mx
+Contacto: danyp2mwf@gmail.com
 
 
 LICENCIA
