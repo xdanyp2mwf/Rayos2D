@@ -30,8 +30,8 @@ Sistema.graficar()
 plt.title("Refracción de la luz del sol en el agua", color='white', fontsize=16, pad=20)
 plt.axhspan(-11, -2, color='deepskyblue', alpha=0.4, zorder=1)
 plt.axis('equal')
-plt.xlim(-15, 15)
-plt.ylim(-15, 15)
+plt.xlim(-10, 10)
+plt.ylim(-10, 10)
 
 
 plt.show()
